@@ -1,5 +1,8 @@
 <?php include '../partials/header.php'; ?>
 
+<pre><?php print_r($incident); ?></pre>
+
+
 <div class="container-fluid mt-4 px-4">
     <div class="row">
 
