@@ -1,5 +1,5 @@
 <?php
-require_once '../models/Incident.php';
+require_once '../models/incident.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -11,6 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_POST['description']
     );
 
-    header('Location: ../views/admin/display_incidents.php');
+    header('Location: ../views/admin/display_incident.php');
     exit;
 }

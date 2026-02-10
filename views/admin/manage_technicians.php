@@ -39,6 +39,7 @@ include '../partials/header.php';
                             <th>Name</th>
                             <th>Email</th>
                             <th>Phone</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,6 +55,14 @@ include '../partials/header.php';
                                     <td><?= htmlspecialchars($tech['firstName'] . ' ' . $tech['lastName']) ?></td>
                                     <td><?= htmlspecialchars($tech['email']) ?></td>
                                     <td><?= htmlspecialchars($tech['phone']) ?></td>
+                                    <td>
+    <form action="../../controllers/delete_technicians.php" method="post" style="display:inline;">
+        <input type="hidden" name="techID" value="<?= $tech['techID']; ?>">
+        <button type="submit" class="btn btn-sm btn-danger">
+            <i class="bi bi-trash"></i>
+        </button>
+    </form>
+</td>
                                 </tr>
                             <?php endforeach; ?>
                         <?php endif; ?>
@@ -68,7 +77,7 @@ include '../partials/header.php';
 <!-- Added Modal for the Technicians -->
 <div class="modal fade" id="addTechnicianModal" tabindex="-1">
     <div class="modal-dialog">
-        <form method="post" action="../../controllers/add_technician.php" class="modal-content">
+        <form method="post" action="../../controllers/add_technicians.php" class="modal-content">
 
             <div class="modal-header">
                 <h5 class="modal-title">Add Technician</h5>

@@ -44,4 +44,18 @@ class Product
             ':productCode' => $productCode
         ]);
     }
+
+    // Product Registration
+    public static function register($customerID, $productCode)
+    {
+        global $db;
+
+        $sql = "INSERT INTO registrations (customerID, productCode, registrationDate) VALUES (:customerID, :productCode, NOW())";
+
+        $stmt = $db->prepare($sql);
+        $stmt->execute([
+            ':customerID' => $customerID,
+            ':productCode' => $productCode
+        ]);
+    }
 }

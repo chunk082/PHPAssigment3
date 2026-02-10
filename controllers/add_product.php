@@ -1,5 +1,6 @@
 <?php
-require_once '../models/Product.php';
+
+require_once '../models/products.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     Product::add(

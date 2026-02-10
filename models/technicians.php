@@ -30,4 +30,16 @@ class Technician
             ':password'  => password_hash($password, PASSWORD_DEFAULT)
         ]);
     }
+
+    // Deletes the Technians
+    public static function delete($techID)
+    {
+        global $db;
+
+        $sql = "DELETE FROM technicians WHERE techID = :techID";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([
+            ':techID' => $techID
+        ]);
+    }
 }

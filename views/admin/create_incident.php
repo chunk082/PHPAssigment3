@@ -40,7 +40,7 @@ $technicians = $db->query("
 
                 <h2 class="mb-4">Create Incident</h2>
 
-                <form action="../../controllers/create_incident.php" method="post">
+                <form action="../../controllers/create_incidents.php" method="post">
 
                     <!-- CUSTOMER -->
                     <div class="mb-3">
@@ -109,7 +109,7 @@ $technicians = $db->query("
                             Create Incident
                         </button>
 
-                        <a href="display_incidents.php" class="btn btn-secondary">
+                        <a href="display_incident.php" class="btn btn-secondary">
                             Cancel
                         </a>
                     </div>

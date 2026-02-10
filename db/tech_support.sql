@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 03, 2026 at 03:44 AM
+-- Generation Time: Feb 10, 2026 at 05:00 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -206,6 +206,15 @@ CREATE TABLE `customers` (
   `password` varchar(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `customers`
+--
+
+INSERT INTO `customers` (`customerID`, `firstName`, `lastName`, `address`, `city`, `state`, `postalCode`, `countryCode`, `phone`, `email`, `password`) VALUES
+(1, 'Demo', 'Account', NULL, NULL, NULL, NULL, NULL, '33333333333', 'account@demo.org', NULL),
+(2, 'Test', 'Account', NULL, NULL, NULL, NULL, NULL, '3334445555', 'test@account.com', NULL),
+(3, 'Chunk', 'Demo', '', 'Toronto', 'ON', 'L4B8G5', 'CA', '0000000000', 'chunk@demo.com', NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -222,6 +231,15 @@ CREATE TABLE `incidents` (
   `title` varchar(50) DEFAULT NULL,
   `description` varchar(2000) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `incidents`
+--
+
+INSERT INTO `incidents` (`incidentID`, `customerID`, `productCode`, `techID`, `dateOpened`, `dateClosed`, `title`, `description`) VALUES
+(1, 3, 'CPL', 2, '2026-02-09 22:51:06', NULL, 'cPanel License Issue', 'cPanel License Issue. '),
+(2, 2, 'CPL', 2, '2026-02-09 22:52:00', NULL, 'What is going on?', 'Hello, I need help with the cPanel'),
+(3, 2, 'CPL', 2, '2026-02-09 22:53:01', NULL, 'Help Me', 'Why do I keep getting this error?');
 
 -- --------------------------------------------------------
 
@@ -241,11 +259,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`productCode`, `name`, `version`, `releaseDate`) VALUES
-('BBC', 'British Broasting', 4.4, '2026-02-02 00:00:00'),
-('CPL', 'cPanel License', 17.4, '2026-02-02 00:00:00'),
-('DVC', 'DevCMS', 1.0, '2026-02-02 00:00:00'),
-('TST', 'Testing', 1.1, '2026-02-02 00:00:00'),
-('WKG', 'Working', 1.5, '2026-02-02 00:00:00');
+('CPL', 'cPanel License', 2.5, '2026-02-09 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -259,6 +273,13 @@ CREATE TABLE `registrations` (
   `registrationDate` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `registrations`
+--
+
+INSERT INTO `registrations` (`customerID`, `productCode`, `registrationDate`) VALUES
+(3, 'CPL', '2026-02-09 21:59:53');
+
 -- --------------------------------------------------------
 
 --
@@ -271,8 +292,15 @@ CREATE TABLE `technicians` (
   `lastName` varchar(50) NOT NULL,
   `email` varchar(50) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
-  `password` varchar(20) DEFAULT NULL
+  `password` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `technicians`
+--
+
+INSERT INTO `technicians` (`techID`, `firstName`, `lastName`, `email`, `phone`, `password`) VALUES
+(2, 'Admin', 'User', 'admin@user.com', '0000000000', '$2y$10$gma.Q5ByUZhHDFj7x1sN8uVlwSSrDHh7Db48f51h9UoUVE/QlOlEq');
 
 --
 -- Indexes for dumped tables
@@ -333,19 +361,19 @@ ALTER TABLE `technicians`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `incidents`
 --
 ALTER TABLE `incidents`
-  MODIFY `incidentID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `incidentID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `technicians`
 --
 ALTER TABLE `technicians`
-  MODIFY `techID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `techID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

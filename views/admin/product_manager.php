@@ -37,6 +37,7 @@ include '../partials/header.php';
                             <th>Name</th>
                             <th>Version</th>
                             <th>Release Date</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -46,6 +47,14 @@ include '../partials/header.php';
                                 <td><?= htmlspecialchars($product['name']) ?></td>
                                 <td><?= htmlspecialchars($product['version']) ?></td>
                                 <td><?= date('Y-m-d', strtotime($product['releaseDate'])) ?></td>
+                                <td><form action="../../controllers/delete_product.php" method="post" style="display:inline;">
+    <input type="hidden" name="productCode" value="<?= $product['productCode']; ?>">
+    <button type="submit" class="btn btn-sm btn-danger">
+        <i class="bi bi-trash"></i>
+    </button>
+</form>
+
+                                </td>
                             </tr>
                         <?php endforeach; ?>
                     </tbody>
